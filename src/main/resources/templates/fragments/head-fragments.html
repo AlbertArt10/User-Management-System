@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+
+    <meta charset="UTF-8">
+    <title th:text="${title + ' - User Management'}"></title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/styles/global.css}">
+    <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+    <script defer type="text/javascript" th:src="@{/scripts/handlers.js}"></script>
+</head>
+
+</html>

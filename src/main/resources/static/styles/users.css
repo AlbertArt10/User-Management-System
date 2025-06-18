@@ -1,0 +1,15 @@
+.nav-link{
+    color: #66afdf;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.nav-link:hover{
+    color: #42788d;
+}
+.navbar-toggler{
+    background-color: #66afdf;
+}
+.container{
+    color:#66afdf ;
+    margin-top: 25px;
+}

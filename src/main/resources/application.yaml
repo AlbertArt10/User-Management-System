@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: ${spring.jpa.database-platform}
+    open-in-view: true
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
+server:
+  servlet:
+    context-path: /user-management
+  error:
+    path: /errors/error-500
+# The above property allow us to define a hidden input inside forms to make delete requests
+# For example: <input type='hidden' name='_method' value='delete'/>
+# Check user page, delete button for a real example. :)

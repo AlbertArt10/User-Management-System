@@ -1,0 +1,81 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  test-coverage:
+    name: Test Coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Build and Test UserManagement application with JaCoCo
+        run: mvn clean verify
+
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: target/site/jacoco/jacoco.xml
+          flags: unittests
+  analyze-javascript:
+    name: Analyze JavaScript
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Initialize CodeQL for JavaScript
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+
+      - name: Perform CodeQL Analysis for JavaScript
+        uses: github/codeql-action/analyze@v2
+        with:
+          queries: codeql-suites/javascript-security-and-quality.qls
+          database: ./codeql-database-javascript
+          sarif-file: ./codeql-results-javascript.sarif
+          properties: >
+            input=src/main/resources/static/scripts/*.js
+  build-project:
+    name: Analyze Java
+    needs:
+      - test-coverage
+      - analyze-javascript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - name: Build UserManagement application
+        run: mvn clean package -DskipTests
+  deploy:
+    name: Deploy
+    needs:
+      - build-project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display deployment status...
+        run: echo "This is just a false deployment step"

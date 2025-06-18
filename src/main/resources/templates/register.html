@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="~{fragments/head-fragments :: head('Register')}"> </head>
+
+<body>
+<section class="container-auth-form p-3 mt-5">
+
+    <form th:action="@{/auth/register}"
+          th:method="post"
+          th:object="${newUser}"
+          class="w-50  login_form shadow-lg"
+          style="margin: auto">
+
+        <h3 class="text-white text-center">Student management</h3>
+        <hr>
+        <div class="form-floating mt-4">
+            <input type="text"
+                   name="username"
+                   th:field="*{username}"
+                   placeholder="Username"
+                   class="form-control"
+            >
+            <label id="username" class="">Username</label>
+
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="email"
+                   name="email"
+                   th:field="*{email}"
+                   placeholder="Email address"
+                   class="form-control"
+            >
+            <label id="email" class="">Email address</label>
+
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="password"
+                   name="password"
+                   th:field="*{password}"
+                   placeholder="Password"
+                   class="form-control"
+            >
+            <label id="password" class="">Password</label>
+
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="password"
+                   th:field="*{confirmPassword}"
+                   placeholder="Confirm password"
+                   class="form-control"
+            >
+            <label id="confirm-password">Confirm password</label>
+
+        </div>
+
+        <hr>
+        <div class="form-floating mt-3">
+            <input type="text"
+                   name="firstName"
+                   th:field="*{firstName}"
+                   placeholder="First name"
+                   class="form-control"
+            >
+            <label id="firstName">First name</label>
+
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text"
+                   name="lastName"
+                   th:field="*{lastName}"
+                   placeholder="Last name"
+                   class="form-control"
+            >
+            <label id="lastName">Last name</label>
+
+        </div>
+
+        <div class="text-white mt-3">
+            <span class="me-2">Account type:</span>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       id="role_user"
+                       value="1"
+                       th:field="*{roleId}"
+                >
+                <label class="form-check-label" for="role_user">Basic user</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="radio"
+                       id="role_visitor"
+                       value="2"
+                       th:field="*{roleId}"
+                >
+                <label class="form-check-label" for="role_visitor">Visitor</label>
+            </div>
+        </div>
+        <hr>
+
+        <div class="btn-toolbar d-flex justify-content-between align-items-center mt-3">
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+                <a th:href="@{/home}" class="link-warning text-decoration-none">Back</a>
+
+        </div>
+    </form>
+</section>
+
+</body>
+
+</html>

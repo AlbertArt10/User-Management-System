@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head-fragments :: head('Home page')}"><title></title></head>
+<body>
+
+
+<div class="container" style="width: 600px; text-align: center; margin-top: 200px;">
+
+    <img th:src="@{/images/logo.png}" height="150" alt="user management logo">
+</div>
+<div class="container" style="width: 300px; text-align: center; font-size: xx-large; font-weight: bold;">
+    <a th:href="@{/auth/login}" style="float:left; color: #68b3e3;">LOGIN</a>
+    <a th:href="@{/auth/register}" style="float:right; color:#68b3e3;">SIGN UP</a>
+</div>
+
+
+</body>
+</html>

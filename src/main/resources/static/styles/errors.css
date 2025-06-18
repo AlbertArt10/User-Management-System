@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.error-container {
+    margin: 50px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.error-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.error-description {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.back-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.error-403 {
+    background-color: #f8d7da;
+}
+
+.error-403 .error-title {
+    color: #721c24;
+}
+
+.error-403 .error-message {
+    color: #721c24;
+}
+
+.error-403 .error-description {
+    color: #721c24;
+}
+
+.error-401 {
+    background-color: #f8d7da;
+}
+
+.error-401 .error-title {
+    color: #721c24;
+}
+
+.error-401 .error-message {
+    color: #721c24;
+}
+
+.error-401 .error-description {
+    color: #721c24;
+}
+
+
+
+
+
+

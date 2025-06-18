@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>500 Server Error</title>
+    <style>
+        body {
+            background-color: #ffffff; /* Light red */
+            color: #090909; /* Dark red */
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${errorTitle}"></h1>
+<th:block th:if="${errorMessage != null}">
+    <h3 th:text="${errorMessage}"></h3>
+</th:block>
+
+</body>
+</html>

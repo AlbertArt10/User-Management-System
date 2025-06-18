@@ -1,0 +1,10 @@
+@import "auth.css";
+@import "./users.css";
+
+body {
+    background: rgba(51, 51, 51);
+}
+
+.mt_100 {
+    margin-top: 100px;
+}

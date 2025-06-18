@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  error:
+    include-binding-errors: always
+    include-exception: true
+spring:
+  datasource:
+    username: ${DB_USER} # Read from environment variable
+    password: ${DB_PASSWORD} # Read from environment variable
+    url: ${DB_URL}
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.sql: DEBUG
+    org.thymeleaf.web: DEBUG
+  file:
+    name: logs/student-management.log
+
+security:
+  enabled: true

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head-fragments :: head('Users page')}"><title></title></head>
+
+<body>
+<header>
+    <nav th:replace="~{fragments/navbar-fragments :: header-navbar}"></nav>
+</header>
+<section class="container text-light mt-4">
+
+    <div th:if="${principal != null}">
+        <h3>Hello, <span th:text="${principal.firstName + ' ' + principal.lastName}"></span></h3>
+    </div>
+    <h1>Users page</h1>
+    <hr>
+    <table class="table table-hover table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Username</th>
+            <th>Role name</th>
+            <th>Email</th>
+            <th>Date added</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody class="table-primary shadow-lg p-3 mb-5">
+        <tr th:each="user : ${userList}">
+            <td th:text="${userStat.index + 1}"></td>
+            <td th:text="${user.getFirstName}"></td>
+            <td th:text="${user.getLastName}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.role.roleName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${#temporals.format(user.dateAdded, 'dd-MM-yyyy | HH:mm:ss')}"></td>
+            <td class="d-flex align-middle justify-content-evenly pe-0 ps-0">
+
+                <a type="submit" th:href="@{'/users/' + ${user.userId}}" class="btn btn-primary">View</a>
+                <form method='post' th:action="@{/users}">
+                    <!-- In the above  case, this refers to the element that triggers the onsubmit event -->
+                    <input type="hidden" name="userId" th:value="${user.userId}"/>
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="button"
+                            onclick="deleteUserHandler(this)"
+                            th:attr="data-fullName=${user.firstName + ' ' + user.lastName}"
+                            class="btn btn-danger">Delete
+                    </button>
+                </form>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<div th:replace="~{fragments/dialogs :: confirm-dialog}"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+server:
+  port: 4000
+  error:
+    include-binding-errors: always
+    include-exception: true
+
+spring:
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+    show-sql: true
+    generate-ddl: false
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+  file:
+    name: logs/student-management.log
+
+security:
+  enabled: true

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="/static/styles/errors.css">
+</head>
+<body>
+<div class="error-container error-401">
+    <h1 class="error-title" th:text="${errorTitle}">401 Error</h1>
+    <p class="error-message" th:text="${errorMessage}">Sorry, you are not authenticated to access this page.</p>
+    <p class="error-description">If you think this is a mistake, please contact the administrator.</p>
+    <a href="/user-management" class="back-link">&larr; Go back to the previous page</a>
+</div>
+</body>
+</html>

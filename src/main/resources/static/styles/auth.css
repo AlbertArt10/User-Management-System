@@ -1,0 +1,72 @@
+.container-auth-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-auth-form > form {
+    background: rgb(72, 72, 72);
+    border-radius: 10px;
+    padding: 40px 20px; /* 40px up and down, 20px left and right */
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    color: #ccc6c0;
+    width: 350px;
+    max-width: 500px;
+}
+
+.container-auth-form > form .form-control {
+    color: #eeeeee;
+    border: 1px solid #444343;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+}
+
+.container-auth-form > form .form-control:focus,
+.container-auth-form > form .form-control:active {
+    border: 1px solid #444343;
+    color: #EEEEEE;
+    outline: none;
+    background-color: #FFFFFF19 !important;
+}
+
+.container-auth-form > form .form-control:-webkit-autofill,
+.container-auth-form > form .form-control:-webkit-autofill:focus,
+.container-auth-form > form .form-control:-webkit-autofill:active,
+.container-auth-form > form .form-control:-webkit-autofill:hover {
+    -webkit-text-fill-color: #EEEEEE;
+    -webkit-box-shadow: 0 0 0 1000px #555 inset !important;
+}
+
+.container-auth-form > form input[type="radio"] {
+    display: none;
+}
+
+.container-auth-form > form input[type="radio"]:checked + label {
+    color: #fff;
+}
+
+.container-auth-form > form input[type="radio"]:checked + label::before {
+    content: "\2713";
+    display: inline-block;
+    margin: 0 10px 0 -10px;
+    color: #ffc107;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+
+}
+
+.container-auth-form > form input[type="radio"] + label::before {
+    content: "";
+    display: inline-block;
+    margin: 0 10px 0 -10px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+}
